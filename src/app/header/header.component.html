@@ -1,12 +1,7 @@
 <mat-toolbar color="primary">
-  <img [attr.src]="logo" [style.width.px]="width"
-  (click)="logSrc(logo)"
-  alt="">
-  <h3>{{title}}</h3>
 
-
-  <mat-form-field class="example-full-width">
-      <input matInput #searchEl (input)="onSearch(searchEl.value)" >
-  </mat-form-field>
+  <ng-content select=".logo"></ng-content>
+  <ng-content select=".title"></ng-content>
+  <ng-content></ng-content>
 
 </mat-toolbar>

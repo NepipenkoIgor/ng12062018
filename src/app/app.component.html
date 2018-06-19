@@ -1,3 +1,21 @@
+<app-header>
 
-<app-header></app-header>
+  <h3 class="title">{{title}}</h3>
+  <img class="logo" [attr.src]="logo" [style.width.px]="width" (click)="logSrc(logo)" alt="">
+  <app-search [placeholder]="text" (search)="searchTerm = $event"></app-search>
 
+</app-header>
+
+<div *ngIf="users$ | async  as users; else loadingBlock">
+  <app-card *ngFor="let user of users | usersFilter:searchTerm ; index as i; odd as isOdd"
+            [position]="i+1"
+            [user]="user"
+            [isOdd]="isOdd"
+  ></app-card>
+
+</div>
+<ng-template #loadingBlock>
+  <div>
+    ....loading
+  </div>
+</ng-template>
