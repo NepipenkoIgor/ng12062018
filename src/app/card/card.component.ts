@@ -1,10 +1,12 @@
-import {Component, Input} from '@angular/core';
-import {IUser} from '../users';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { UsersService, IUser } from '../common/service/users.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  providers: [UsersService]
 })
 export class CardComponent {
 
@@ -16,5 +18,11 @@ export class CardComponent {
 
   @Input()
   public isOdd: boolean;
+
+  public constructor(
+    private _usersService: UsersService
+  ) {
+    this._usersService.getDate();
+  }
 
 }

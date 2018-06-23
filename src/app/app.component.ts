@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {IUser, users$} from './users';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IUser, UsersService } from './common/service/users.service';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +13,14 @@ export class AppComponent implements OnInit {
   public width = 50;
   public text = 'Search user';
 
-  public users$: Observable<IUser[]> = users$;
+  public users$: Observable<IUser[]>;
 
+  public constructor(
+    private _usersService: UsersService
+  ) { }
 
   public ngOnInit(): void {
+    this.users$ = this._usersService.getUsers();
   }
 
 }
