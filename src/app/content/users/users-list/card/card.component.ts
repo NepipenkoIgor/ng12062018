@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { UsersService, IUser } from '../common/service/users.service';
+import { UsersService, IUser } from '../../../../common/services/users.service';
 
 @Component({
   selector: 'app-card',

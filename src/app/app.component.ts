@@ -1,26 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IUser, UsersService } from './common/service/users.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public title = 'Angular course';
   public logo = 'assets/images/Angular_full_color_logo.png';
   public width = 50;
   public text = 'Search user';
-
-  public users$: Observable<IUser[]>;
-
-  public constructor(
-    private _usersService: UsersService
-  ) { }
-
-  public ngOnInit(): void {
-    this.users$ = this._usersService.getUsers();
-  }
 
 }
