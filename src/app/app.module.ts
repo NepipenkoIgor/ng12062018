@@ -22,6 +22,7 @@ import {UsersListComponent} from './content/users/users-list/users-list.componen
 import {UserComponent} from './content/users/user/user.component';
 import {UserResolveService} from './content/users/user/user-resolve.service';
 import {CustomPreloadService} from './common/services/custom-preload.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -40,6 +41,8 @@ import {CustomPreloadService} from './common/services/custom-preload.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     NoopAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,

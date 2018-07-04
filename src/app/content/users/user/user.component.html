@@ -1,3 +1,72 @@
-{{title}}
+<!--{{title}}-->
 
-<pre>{{user | json}}</pre>
+<!--<pre>{{user | json}}</pre>-->
+<h3>Template</h3>
+
+<div ngForm #f="ngForm">
+  <div>
+    <input type="text" name="firstName"  ngModel
+           #formControl="ngModel"
+           required minlength="4"
+    >
+  </div>
+  <div>
+    <input type="text" name="lastName"  ngModel
+           #formControl="ngModel"
+           required minlength="4"
+    >
+  </div>
+  <div ngModelGroup="passwordGroup">
+    <div>
+      <input type="password" ngModel name="password"  required minlength="4">
+    </div>
+
+    <div>
+      <input type="password" ngModel name="cpassword"  required minlength="4">
+    </div>
+  </div>
+  <button [disabled]="!f.valid">Send</button>
+</div>
+
+<pre>{{f.value | json}}</pre>
+<pre>{{f.valid }}</pre>
+
+
+<h3>Reactive</h3>
+<div [formGroup]="userForm">
+  <div>
+    <input type="text"  [formControl]="userForm.get('firstName')"
+    >
+  </div>
+  <div>
+    <input type="text" formControlName="lastName"
+    >
+  </div>
+
+  <div formGroupName="passwordGroup">
+    <div>
+      <input type="password" formControlName="password"  >
+    </div>
+
+    <div>
+      <input type="password" formControlName="cpassword" >
+    </div>
+  </div>
+  <button [disabled]="!userForm.valid" (click)="send(userForm)">Send</button>
+</div>
+
+<pre>{{userForm.value | json}}</pre>
+<pre>{{userForm.valid }}</pre>
+
+<div [formGroup]="formWithEmails">
+  <ul formGroupName="emails">
+    <li *ngFor="let e of formWithEmails.get('emails').controls; index as i">
+      <input type="text" formControlName={{i}}>
+      <span (click)="removeEmail(i)" >X</span>
+    </li>
+  </ul>
+  <button (click)="addEmail()">Add Email</button>
+</div>
+
+<pre>{{formWithEmails.value | json}}</pre>
+<pre>{{formWithEmails.valid }}</pre>

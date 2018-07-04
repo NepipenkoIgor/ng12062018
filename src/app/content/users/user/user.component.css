@@ -1,0 +1,18 @@
+input.ng-invalid {
+  border: 1px solid red;
+}
+input.ng-valid {
+  border: 1px solid green;
+}
+
+div[formgroupname].ng-pending {
+  border: 1px solid orange;
+}
+
+div[formgroupname].ng-invalid {
+  border: 1px solid red;
+}
+div[formgroupname].ng-valid {
+  border: 1px solid green;
+}
+
