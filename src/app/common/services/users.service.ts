@@ -5,7 +5,7 @@ import {BASE_URL} from '../../config';
 import {map} from 'rxjs/internal/operators';
 
 export interface IUser {
-  id: number;
+  id?: number;
   profileName: string;
   firstName: string;
   surname: string;

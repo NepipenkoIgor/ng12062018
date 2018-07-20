@@ -23,6 +23,7 @@ import {UserComponent} from './content/users/user/user.component';
 import {UserResolveService} from './content/users/user/user-resolve.service';
 import {CustomPreloadService} from './common/services/custom-preload.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SearchService} from './search/search.service';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   providers: [
     UsersService,
+    SearchService,
     UserResolveService,
     CustomPreloadService,
     {provide: BASE_URL, useValue: environment.base_url},
